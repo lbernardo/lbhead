@@ -1,0 +1,8 @@
+lbhead.lo: /home/bernardo/php-5.6.24/ext/lbhead/lbhead.c
+	$(LIBTOOL) --mode=compile $(CC)  -I. -I/home/bernardo/php-5.6.24/ext/lbhead $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS)  -c /home/bernardo/php-5.6.24/ext/lbhead/lbhead.c -o lbhead.lo 
+$(phplibdir)/lbhead.la: ./lbhead.la
+	$(LIBTOOL) --mode=install cp ./lbhead.la $(phplibdir)
+
+./lbhead.la: $(shared_objects_lbhead) $(LBHEAD_SHARED_DEPENDENCIES)
+	$(LIBTOOL) --mode=link $(CC) $(COMMON_FLAGS) $(CFLAGS_CLEAN) $(EXTRA_CFLAGS) $(LDFLAGS) -o $@ -export-dynamic -avoid-version -prefer-pic -module -rpath $(phplibdir) $(EXTRA_LDFLAGS) $(shared_objects_lbhead) $(LBHEAD_SHARED_LIBADD)
+
