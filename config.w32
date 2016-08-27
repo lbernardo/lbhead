@@ -1,0 +1,13 @@
+// $Id$
+// vim:ft=javascript
+
+// If your extension references something external, use ARG_WITH
+// ARG_WITH("lbhead", "for lbhead support", "no");
+
+// Otherwise, use ARG_ENABLE
+// ARG_ENABLE("lbhead", "enable lbhead support", "no");
+
+if (PHP_LBHEAD != "no") {
+	EXTENSION("lbhead", "lbhead.c");
+}
+
