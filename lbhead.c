@@ -45,7 +45,7 @@ pthread_t threads;
 void *thread_func(void *arg) {
 	ptr_thread_arg targ = (ptr_thread_arg)arg;	
 	system(targ->comando);
-	
+	pthread_exit((void*) arg);
 }
 
 /* {{{ PHP_INI
